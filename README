@@ -14,6 +14,10 @@ HOW TO RUN THE SCRIPT
 
     pip install -r requirements.txt
 
+3. Create a text file containing the list of files you want to delete:
+
+    The script will look for a file named `files_to_delete.txt` in the same directory as the script. 
+
 3. Run the script: Execute the following command in your terminal:
 
     python3 s3delete.py
