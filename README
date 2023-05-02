@@ -1,0 +1,26 @@
+Created by Dufok (^.^')
+S3 File Deletion Script
+
+This script scans an Amazon S3 bucket and attempts to find and delete specific files listed in a text file.
+
+PLEASE BE AWARE, THIS SCRIPT WILL DELETE FILES.
+(However, it will always ask for your confirmation before performing any deletion.)
+
+HOW TO RUN THE SCRIPT
+
+1. Create a .env file: You can use the provided .env.example as a template. Simply copy its contents into a new file named .env.
+
+2. Install the necessary Python packages: Run the following command in your terminal:
+
+    pip install -r requirements.txt
+
+3. Run the script: Execute the following command in your terminal:
+
+    python3 s3delete.py
+
+
+
+If you find this script helpful and want to show your appreciation,
+you can send contributions to the following Bitcoin address:
+
+    TPJjPKCbzhrQFeR7dwoCE86cJKEmJjU62S USDT (trc20)

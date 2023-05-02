@@ -8,9 +8,11 @@ load_dotenv()
 s3 = boto3.client('s3',
                   aws_access_key_id=os.environ['S3_ACCESS_KEY'],
                   aws_secret_access_key=os.environ['S3_SECRET_KEY'],
+                  endpoint_url=os.environ['S3_END_POINT']
                  )
 
 bucket = os.environ['BUCKET']
+
 
 def delete_file_from_bucket(bucket_name, file_name, s3_client):
     """Delete a file from the S3 bucket."""
@@ -34,7 +36,12 @@ with open('files_to_delete.txt', 'r', encoding='utf-8') as file:
 for file_names in files_to_delete:
     found_file_name = find_file_in_bucket(bucket, file_names, s3)
     if found_file_name is not None:
-        delete_file_from_bucket(bucket, found_file_name, s3)
-        print(f'Deleted {found_file_name} from {bucket}')
+        print(f'Found {found_file_name} in {bucket}')
+        delete_confirmation = input("Do you want to delete it? [y/n] ")
+        if delete_confirmation.lower() == 'y':
+            delete_file_from_bucket(bucket, found_file_name, s3)
+            print(f'Deleted {found_file_name} from {bucket}')
+        else:
+            print(f'Skipped deleting {found_file_name}')
     else:
         print(f'File {file_names} not found in {bucket}')
